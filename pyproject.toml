@@ -69,5 +69,6 @@ section-order = [
 split-on-trailing-comma = true
 
 [tool.ruff.format]
+quote-style = "single"
 indent-style = "space"
 line-ending = "lf"
