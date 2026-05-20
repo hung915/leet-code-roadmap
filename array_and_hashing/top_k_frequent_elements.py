@@ -52,3 +52,20 @@ def top_k_frequent_quickselect(nums: list[int], k: int) -> list[int]:
     _quickselect(0, n - 1, n - k)
 
     return unique[n - k :]
+
+
+def top_k_frequent_bucket_sort(nums: list[int], k: int) -> list[int]:
+    freq = Counter(nums)
+    # Create buckets where index = frequency
+    buckets = [[] for _ in range(len(nums) + 1)]
+    for num, count in freq.items():
+        buckets[count].append(num)
+
+    # Collect top k elements from highest frequency bucket down
+    result = []
+    for i in range(len(buckets) - 1, 0, -1):
+        for num in buckets[i]:
+            result.append(num)
+            if len(result) == k:
+                return result
+    return result
