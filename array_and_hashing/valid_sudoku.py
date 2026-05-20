@@ -73,3 +73,54 @@ def is_valid_sudoku_one_set(board: list[list[str]]) -> bool:
                 seen.add(box_key)
 
     return True
+
+
+def is_valid_sudoku_fixed_size_array(board: list[list[str]]) -> bool:
+    rows = [[0] * 9 for _ in range(9)]
+    cols = [[0] * 9 for _ in range(9)]
+    boxes = [[0] * 9 for _ in range(9)]
+
+    for r in range(9):
+        for c in range(9):
+            val = board[r][c]
+
+            if val == '.':
+                continue
+
+            idx = int(val) - 1
+            box_id = (r // 3) * 3 + (c // 3)
+
+            if rows[r][idx] or cols[c][idx] or boxes[box_id]:
+                return False
+
+            rows[r][idx] = 1
+            cols[c][idx] = 1
+            boxes[box_id][idx] = 1
+
+    return True
+
+
+def is_valid_sudoku_bitmask(board: list[list[int]]) -> bool:
+    rows = [0] * 9
+    cols = [0] * 9
+    boxes = [0] * 9
+
+    for r in range(9):
+        for c in range(9):
+            val = board[r][c]
+
+            if val == '.':
+                continue
+
+            idx = int(val) - 1
+            bit = 1 << idx
+            box_id = (r // 3) * 3 + (c // 3)
+
+            if rows[r] & bit or cols[c] & bit or boxes[box_id] & bit:
+                return False
+
+            rows[r] |= bit
+            cols[c] |= bit
+            boxes[box_id] |= bit
+
+    return True
