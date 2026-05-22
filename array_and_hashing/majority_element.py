@@ -30,3 +30,24 @@ def majority_element_random(nums: list[int]) -> int:
 
         if nums.count(candidate) > n // 2:
             return candidate
+
+
+def majority_element_bit_manipulation(nums: list[int]) -> int:
+    n = len(nums)
+    majority = 0
+
+    for i in range(32):
+        bit = 1 << i
+        bit_count = 0
+
+        for num in nums:
+            if num & bit:
+                bit_count += 1
+
+        if bit_count > n // 2:
+            majority |= bit
+
+    # Handle negative numbers — convert from unsigned 32-bit to signed
+    if majority >= (1 << 31):  # if sign bit is set
+        majority -= 1 << 32  # convert to negative
+    return majority
