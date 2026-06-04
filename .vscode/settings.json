@@ -106,6 +106,12 @@
       "source.organizeImports": "always"
     }
   },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnSave": true
+  },
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4 }",
+  "C_Cpp.clang_format_fallbackStyle": "LLVM",
 
   // Plugin Settings
   "eslint.validate": ["javascript", "javascriptvue", "vue"]
