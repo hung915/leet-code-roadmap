@@ -26,7 +26,7 @@ function topKFrequentBucketSort(nums: number[], k: number): number[] {
   return result;
 }
 
-function topKFrequentQuickselect(nums: number[], k: number): number[] {
+function topKFrequentQuickSelect(nums: number[], k: number): number[] {
   const count = new Map<number, number>();
   for (const num of nums) count.set(num, (count.get(num) ?? 0) + 1);
 
@@ -50,17 +50,17 @@ function topKFrequentQuickselect(nums: number[], k: number): number[] {
     return storeIndex;
   }
 
-  function quickselect(left: number, right: number, kSmallest: number): void {
+  function quickSelect(left: number, right: number, kSmallest: number): void {
     if (left >= right) return;
     const pivotIndex = left + Math.floor(Math.random() * (right - left + 1));
     const finalIndex = partition(left, right, pivotIndex);
 
     if (finalIndex === kSmallest) return;
     else if (finalIndex > kSmallest)
-      quickselect(left, finalIndex - 1, kSmallest);
-    else quickselect(finalIndex + 1, right, kSmallest);
+      quickSelect(left, finalIndex - 1, kSmallest);
+    else quickSelect(finalIndex + 1, right, kSmallest);
   }
 
-  quickselect(0, n - 1, n - k);
+  quickSelect(0, n - 1, n - k);
   return unique.slice(n - k);
 }
