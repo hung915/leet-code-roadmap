@@ -4,7 +4,8 @@ import java.util.Map;
 public class ValidAnagram {
 
     public static boolean isAnagramCounter(String s, String t) {
-        if (s.length() != t.length()) return false;
+        if (s.length() != t.length())
+            return false;
 
         Map<Character, Integer> counter = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
@@ -16,12 +17,15 @@ public class ValidAnagram {
     }
 
     public static boolean isAnagramAscii(String s, String t) {
-        if (s.length() != t.length()) return false;
+        if (s.length() != t.length())
+            return false;
 
         int[] counter = new int[26];
-        for (char c : s.toCharArray()) counter[c - 'a']++;
+        for (char c : s.toCharArray())
+            counter[c - 'a']++;
         for (char c : t.toCharArray()) {
-            if (counter[c - 'a'] == 0) return false;
+            if (counter[c - 'a'] == 0)
+                return false;
             counter[c - 'a']--;
         }
 

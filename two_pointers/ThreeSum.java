@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class ThreeSum {
 
@@ -7,18 +11,22 @@ public class ThreeSum {
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue;
 
             int left = i + 1, right = nums.length - 1;
             while (left < right) {
                 int sum = nums[i] + nums[left] + nums[right];
-                if (sum > 0) right--;
-                else if (sum < 0) left++;
+                if (sum > 0)
+                    right--;
+                else if (sum < 0)
+                    left++;
                 else {
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     left++;
                     right--;
-                    while (left < right && nums[left] == nums[left - 1]) left++;
+                    while (left < right && nums[left] == nums[left - 1])
+                        left++;
                 }
             }
         }
@@ -31,14 +39,16 @@ public class ThreeSum {
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0) break;
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            if (nums[i] > 0)
+                break;
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue;
 
             Set<Integer> seen = new HashSet<>();
             for (int j = i + 1; j < nums.length; j++) {
                 int complement = -nums[i] - nums[j];
                 if (seen.contains(complement)) {
-                    int[] triplet = {nums[i], complement, nums[j]};
+                    int[] triplet = { nums[i], complement, nums[j] };
                     Arrays.sort(triplet);
                     res.add(Arrays.asList(triplet[0], triplet[1], triplet[2]));
                 }

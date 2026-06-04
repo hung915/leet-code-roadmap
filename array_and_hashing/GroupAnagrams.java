@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GroupAnagrams {
 
@@ -20,7 +24,8 @@ public class GroupAnagrams {
 
         for (String str : strs) {
             int[] counter = new int[26];
-            for (char c : str.toCharArray()) counter[c - 'a']++;
+            for (char c : str.toCharArray())
+                counter[c - 'a']++;
             String key = Arrays.toString(counter);
             ans.computeIfAbsent(key, k -> new ArrayList<>()).add(str);
         }

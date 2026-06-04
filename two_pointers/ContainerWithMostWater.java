@@ -9,8 +9,10 @@ public class ContainerWithMostWater {
             int currentHeight = Math.min(height[left], height[right]);
             maxWater = Math.max(maxWater, width * currentHeight);
 
-            if (height[left] < height[right]) left++;
-            else right--;
+            if (height[left] < height[right])
+                left++;
+            else
+                right--;
         }
 
         return maxWater;

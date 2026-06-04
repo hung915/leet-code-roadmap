@@ -9,11 +9,11 @@ public class TwoSum {
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (hashmap.containsKey(complement)) {
-                return new int[]{i, hashmap.get(complement)};
+                return new int[] { i, hashmap.get(complement) };
             }
             hashmap.put(nums[i], i);
         }
 
-        return new int[]{};
+        return new int[] {};
     }
 }

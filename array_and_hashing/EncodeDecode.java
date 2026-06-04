@@ -18,7 +18,8 @@ public class EncodeDecode {
 
         while (i < s.length()) {
             int j = i;
-            while (s.charAt(j) != '#') j++;
+            while (s.charAt(j) != '#')
+                j++;
 
             int length = Integer.parseInt(s.substring(i, j));
             result.add(s.substring(j + 1, j + 1 + length));

@@ -5,7 +5,8 @@ public class LongestConsecutiveSequence {
 
     public static int longestConsecutiveSequence(int[] nums) {
         Set<Integer> hashSet = new HashSet<>();
-        for (int num : nums) hashSet.add(num);
+        for (int num : nums)
+            hashSet.add(num);
 
         int longestStreak = 0;
 
