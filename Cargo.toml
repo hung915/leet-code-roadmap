@@ -1,0 +1,3 @@
+[workspace]
+members = ["week1-array-string-hashing"]
+resolver = "2"
