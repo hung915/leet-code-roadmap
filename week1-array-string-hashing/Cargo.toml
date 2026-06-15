@@ -6,3 +6,7 @@ edition = "2021"
 [[bin]]
 name = "two_sum"
 path = "two_sum.rs"
+
+[[bin]]
+name = "contain_duplicate"
+path = "contain_duplicate.rs"
